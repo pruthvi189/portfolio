@@ -1,98 +1,83 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { LucideIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { site } from "@/data/site";
+import { GithubIcon, LinkedinIcon, XIcon } from "@/components/icons";
 
-interface NavItem {
-  name: string;
-  url: string;
-  icon: LucideIcon;
-}
+const navLinks = [
+  { name: "About", href: "#about" },
+  { name: "Experience", href: "#experience" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
+];
 
-interface NavBarProps {
-  items: NavItem[];
-  className?: string;
-}
-
-export function NavBar({ items, className }: NavBarProps) {
-  const [activeTab, setActiveTab] = useState(items[0].name);
-  const [isMobile, setIsMobile] = useState(false);
+export function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("About");
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = items.map((item) => item.url.replace("#", ""));
-      const scrollPos = window.scrollY + 120;
-
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+      const sections = navLinks.map((l) => l.href.replace("#", ""));
       for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i]);
-        if (section && section.offsetTop <= scrollPos) {
-          setActiveTab(items[i].name);
+        const el = document.getElementById(sections[i]);
+        if (el && el.offsetTop - 120 <= window.scrollY) {
+          setActive(navLinks[i].name);
           break;
         }
       }
     };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [items]);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <div
-      className={cn(
-        "fixed bottom-0 sm:top-0 sm:bottom-auto left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-6",
-        className,
-      )}
+    <motion.nav
+      initial={{ y: -80 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-[#0A0A0A]/80 backdrop-blur-xl border-b border-[rgba(255,255,255,0.08)]"
+          : "bg-transparent"
+      }`}
     >
-      <div className="flex items-center gap-0.5 sm:gap-1 bg-background/80 border border-border/60 backdrop-blur-xl py-1 px-1 rounded-full">
-        {items.map((item) => {
-          const Icon = item.icon;
-          const isActive = activeTab === item.name;
+      <div className="section-container flex items-center justify-between h-16">
+        <a href="#hero" className="font-[family-name:var(--font-jetbrains)] text-sm font-medium tracking-wide">
+          {site.name.split(" ")[0]}
+          <span className="text-[#D97706]">.</span>
+        </a>
 
-          return (
-            <Link
-              key={item.name}
-              href={item.url}
-              onClick={() => setActiveTab(item.name)}
-              className={cn(
-                "relative cursor-pointer text-xs font-medium px-3 sm:px-5 py-2 rounded-full transition-colors duration-200",
-                "text-muted-foreground hover:text-foreground",
-                isActive && "text-foreground",
-              )}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={() => setActive(link.name)}
+              className={`font-[family-name:var(--font-jetbrains)] text-xs uppercase tracking-[0.15em] transition-colors duration-200 ${
+                active === link.name
+                  ? "text-[#D97706]"
+                  : "text-[rgba(245,245,240,0.55)] hover:text-[#F5F5F0]"
+              }`}
             >
-              <span className="hidden md:inline">{item.name}</span>
-              <span className="md:hidden">
-                <Icon size={16} strokeWidth={1.5} />
-              </span>
-              {isActive && (
-                <motion.div
-                  layoutId="activeNav"
-                  className="absolute inset-0 bg-secondary rounded-full -z-10"
-                  initial={false}
-                  transition={{
-                    type: "spring",
-                    stiffness: 380,
-                    damping: 30,
-                  }}
-                >
-                  <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-orange rounded-full" />
-                </motion.div>
-              )}
-            </Link>
-          );
-        })}
+              {link.name}
+            </a>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-4">
+          <a href={site.github} target="_blank" rel="noopener noreferrer" className="text-[rgba(245,245,240,0.4)] hover:text-[#D97706] transition-colors">
+            <GithubIcon className="w-4 h-4" />
+          </a>
+          <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="text-[rgba(245,245,240,0.4)] hover:text-[#D97706] transition-colors">
+            <LinkedinIcon className="w-4 h-4" />
+          </a>
+          <a href={`mailto:${site.email}`} className="text-[rgba(245,245,240,0.4)] hover:text-[#D97706] transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </a>
+        </div>
       </div>
-    </div>
+    </motion.nav>
   );
 }
