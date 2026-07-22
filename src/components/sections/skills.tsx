@@ -44,8 +44,6 @@ export function Skills() {
           className="mb-14"
         >
           <div className="mb-3 flex items-center gap-2.5">
-            <span className="font-mono text-[11px] font-semibold text-[#d97706]">02</span>
-            <div className="h-px w-8 bg-[#d97706]/40" />
             <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-white/30">Skills</span>
           </div>
           <h2 className="font-sans text-4xl font-black uppercase leading-none tracking-tighter text-[#f5f5f0] sm:text-5xl md:text-6xl">

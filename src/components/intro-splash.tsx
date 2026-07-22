@@ -84,7 +84,7 @@ export function IntroSplash() {
             <div className="overflow-hidden">
               <div
                 className="text-[clamp(3rem,10vw,7rem)] font-light tracking-tight leading-none text-[#f0ece4]"
-                style={{ fontFamily: "var(--font-syne), sans-serif" }}
+                style={{ fontFamily: "var(--font-poppins), sans-serif" }}
               >
                 {firstName.split("").map((char, i) => (
                   <BlurChar
@@ -100,7 +100,7 @@ export function IntroSplash() {
             <div className="overflow-hidden mt-1">
               <div
                 className="text-[clamp(3rem,10vw,7rem)] font-light tracking-tight leading-none text-[#f0ece4]"
-                style={{ fontFamily: "var(--font-syne), sans-serif" }}
+                style={{ fontFamily: "var(--font-poppins), sans-serif" }}
               >
                 {lastName.split("").map((char, i) => (
                   <BlurChar
