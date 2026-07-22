@@ -1,65 +1,75 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { JetBrains_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Syne } from "next/font/google";
 import "./globals.css";
 
-const geist = Geist({
-  variable: "--font-geist",
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
-const jetbrains = JetBrains_Mono({
-  variable: "--font-jetbrains",
+const syne = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio-three-flame-35.vercel.app"),
+  metadataBase: new URL("https://pruthvishah.dev"),
   title: {
-    default: "Pruthvi Shah — Full Stack & AI Developer",
+    default: "Pruthvi Shah — ML Engineer",
     template: "%s | Pruthvi Shah",
   },
   description:
-    "Full Stack Developer & AI Automation Engineer building scalable web products and intelligent agentic pipelines.",
+    "ML Engineer specializing in deep learning, NLP, and full-stack AI applications. Building intelligent systems at the intersection of machine learning and full-stack engineering.",
   keywords: [
-    "full stack",
-    "AI",
     "machine learning",
-    "Next.js",
+    "deep learning",
+    "NLP",
+    "AI",
+    "full-stack",
     "Python",
-    "TypeScript",
-    "React",
-    "automation",
+    "TensorFlow",
+    "FastAPI",
+    "Next.js",
   ],
   authors: [{ name: "Pruthvi Shah" }],
   creator: "Pruthvi Shah",
-  icons: { icon: "/favicon.svg" },
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://portfolio-three-flame-35.vercel.app",
-    siteName: "Pruthvi Shah — Full Stack & AI Developer",
-    title: "Pruthvi Shah — Full Stack & AI Developer",
+    url: "https://pruthvishah.dev",
+    siteName: "Pruthvi Shah — ML Engineer",
+    title: "Pruthvi Shah — ML Engineer",
     description:
-      "Full Stack Developer & AI Automation Engineer building scalable web products and intelligent agentic pipelines.",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Pruthvi Shah" }],
+      "ML Engineer specializing in deep learning, NLP, and full-stack AI applications.",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Pruthvi Shah — ML Engineer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pruthvi Shah — Full Stack & AI Developer",
+    title: "Pruthvi Shah — ML Engineer",
     description:
-      "Full Stack Developer & AI Automation Engineer building scalable web products and intelligent agentic pipelines.",
+      "ML Engineer specializing in deep learning, NLP, and full-stack AI applications.",
     images: ["/og.png"],
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -70,9 +80,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geist.variable} ${geistMono.variable} ${jetbrains.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} dark`}
     >
-      <body className="min-h-screen bg-[#0A0A0A] text-[#F5F5F0] antialiased">
+      <body className="min-h-screen bg-background text-foreground antialiased">
         {children}
       </body>
     </html>
