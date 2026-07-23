@@ -7,21 +7,33 @@ const timeline = [
   {
     period: "Jan 2026 — Apr 2026",
     title: "ML Intern",
-    organization: "Thick Code",
+    organization: "Thick Code, Rajkot",
     icon: Briefcase,
+    details: [
+      "Led model development on a 4-person team building a stock forecasting platform benchmarking ARIMA, Prophet, and LSTM models",
+      "Applied core ML and data science foundations — NumPy, pandas, and applied statistics — to iterative, hands-on project work",
+      "Independently designed and delivered 8+ applied ML projects on biweekly deadlines",
+    ],
   },
   {
     period: "May 2025 — Jun 2025",
     title: "Full Stack Web Developer Intern",
-    organization: "Gleamoro",
+    organization: "Gleamoro, Bhavnagar",
     icon: Briefcase,
+    details: [
+      "Reduced API response latency by an estimated 30% through query optimization and connection pooling",
+      "Integrated React/Redux frontend with the authenticated API; diagnosed and fixed a race condition in concurrent requests",
+    ],
   },
   {
     period: "May 2026",
-    title: "B.Tech in Information Technology",
-    organization: "G H Patel College of Engineering and Technology",
+    title: "B.Tech, Information Technology",
+    organization: "G H Patel College of Engineering and Technology (GCET), Anand",
     icon: GraduationCap,
-    details: ["CGPA: 8.60"],
+    details: [
+      "CGPA: 8.60/10",
+      "Affiliated with CVM University",
+    ],
   },
 ];
 
