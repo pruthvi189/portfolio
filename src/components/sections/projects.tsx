@@ -6,7 +6,7 @@ import { projects } from "@/data/projects";
 
 export function Projects() {
   return (
-    <section id="projects" className="scroll-mt-24 relative flex w-full flex-col items-center bg-[#080808] px-4 pt-32 pb-24 sm:px-6 lg:px-8">
+    <section id="projects" className="scroll-mt-24 relative flex w-full flex-col items-center bg-[#080808] px-4 py-24 sm:px-6 lg:px-8">
       <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#d97706]/20 to-transparent" />
 
       <div className="relative z-10 w-full max-w-7xl">
@@ -37,7 +37,7 @@ export function Projects() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.6, delay: index * 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
+              transition={{ duration: 0.6, delay: index * 0.08, ease: [0.21, 0.47, 0.32, 0.98] }}
               className="group relative overflow-hidden rounded-sm border border-white/[0.08] bg-white/[0.008] transition-shadow hover:shadow-[0_24px_64px_rgba(0,0,0,0.7)]"
             >
               <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#d97706]/50 to-transparent" />

@@ -2,8 +2,6 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useMemo, useEffect, useState } from "react";
-import { FileText } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { site } from "@/data/site";
 import Link from "next/link";
 
@@ -135,33 +133,12 @@ export function Hero() {
             >
               View Projects
             </Link>
-            <a
-              href={site.github}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="#contact"
               className="inline-flex items-center gap-2 border border-border px-6 py-3 rounded-full font-medium text-sm text-muted-foreground hover:text-foreground hover:border-muted-foreground/50 transition-colors duration-200"
             >
-              <GithubIcon className="w-4 h-4" />
-              GitHub
-            </a>
-            <a
-              href={site.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-border px-6 py-3 rounded-full font-medium text-sm text-muted-foreground hover:text-foreground hover:border-muted-foreground/50 transition-colors duration-200"
-            >
-              <LinkedinIcon className="w-4 h-4" />
-              LinkedIn
-            </a>
-            <a
-              href={site.resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-border px-6 py-3 rounded-full font-medium text-sm text-muted-foreground hover:text-foreground hover:border-muted-foreground/50 transition-colors duration-200"
-            >
-              <FileText size={16} />
-              Resume
-            </a>
+              Contact Me
+            </Link>
           </motion.div>
         </motion.div>
 
