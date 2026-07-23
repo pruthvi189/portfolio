@@ -36,6 +36,9 @@ export function About() {
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
             About Me
           </h2>
+        </FadeIn>
+
+        <FadeIn delay={0.2}>
           <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mb-16">
             Hi, I&apos;m Pruthvi. I recently graduated with a B.Tech in Information Technology
             and enjoy building AI applications that solve real-world problems. My work primarily
@@ -45,10 +48,11 @@ export function About() {
           </p>
         </FadeIn>
 
-        <div className="relative">
-          <div className="absolute left-4 sm:left-6 top-0 bottom-0 w-px bg-border" />
+        <FadeIn delay={0.4}>
+          <div className="relative">
+            <div className="absolute left-4 sm:left-6 top-0 bottom-0 w-px bg-border" />
 
-          <StaggerContainer className="space-y-12" staggerDelay={0.1}>
+            <StaggerContainer className="space-y-12" staggerDelay={0.1}>
             {timeline.map((item, index) => {
               const Icon = item.icon;
               return (
@@ -91,7 +95,8 @@ export function About() {
               );
             })}
           </StaggerContainer>
-        </div>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
