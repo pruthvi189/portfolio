@@ -7,34 +7,21 @@ const timeline = [
   {
     period: "Jan 2026 — Apr 2026",
     title: "ML Intern",
-    organization: "Thick Code, Rajkot",
+    organization: "Thick Code",
     icon: Briefcase,
-    details: [
-      "Led model development on a 4-person team building a stock forecasting platform benchmarking ARIMA, Prophet, and LSTM models",
-      "Applied core ML and data science foundations — NumPy, pandas, and applied statistics — to iterative, hands-on project work",
-      "Independently designed and delivered 8+ applied ML projects on biweekly deadlines",
-    ],
   },
   {
     period: "May 2025 — Jun 2025",
     title: "Full Stack Web Developer Intern",
-    organization: "Gleamoro, Bhavnagar",
+    organization: "Gleamoro",
     icon: Briefcase,
-    details: [
-      "Built and owned an authentication/user-management REST API in Node.js on a 3-person team, deployed via Docker on Linux",
-      "Reduced API response latency by an estimated 30% through query optimization and connection pooling",
-      "Integrated React/Redux frontend with the authenticated API; diagnosed and fixed a race condition in concurrent requests",
-    ],
   },
   {
     period: "May 2026",
-    title: "B.Tech, Information Technology",
-    organization: "G H Patel College of Engineering and Technology (GCET), Anand",
+    title: "B.Tech in Information Technology",
+    organization: "G H Patel College of Engineering and Technology",
     icon: GraduationCap,
-    details: [
-      "CGPA: 8.60/10",
-      "Affiliated with CVM University",
-    ],
+    details: ["CGPA: 8.60"],
   },
 ];
 
@@ -46,11 +33,15 @@ export function About() {
           <p className="text-orange font-medium text-sm tracking-wide uppercase mb-3">
             About
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-            My Journey
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
+            About Me
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mb-16">
-            From learning data science to building production ML systems — here&apos;s how I got here.
+          <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mb-16">
+            Hi, I&apos;m Pruthvi. I recently graduated with a B.Tech in Information Technology
+            and enjoy building AI applications that solve real-world problems. My work primarily
+            revolves around machine learning, with experience in full-stack development whenever
+            a project calls for it. I like turning ideas that genuinely interest me into projects,
+            using each one as an opportunity to learn, experiment, and build something meaningful.
           </p>
         </FadeIn>
 
@@ -79,19 +70,21 @@ export function About() {
                           {item.organization}
                         </p>
                       )}
-                      <ul className="space-y-2">
-                        {item.details.map((detail, i) => (
-                          <li
-                            key={i}
-                            className="text-sm text-muted-foreground leading-relaxed flex gap-2"
-                          >
-                            <span className="text-orange mt-1.5 shrink-0">
-                              &bull;
-                            </span>
-                            {detail}
-                          </li>
-                        ))}
-                      </ul>
+                      {item.details && (
+                        <ul className="space-y-2">
+                          {item.details.map((detail, i) => (
+                            <li
+                              key={i}
+                              className="text-sm text-muted-foreground leading-relaxed flex gap-2"
+                            >
+                              <span className="text-orange mt-1.5 shrink-0">
+                                &bull;
+                              </span>
+                              {detail}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                   </div>
                 </StaggerItem>
