@@ -71,7 +71,7 @@ export const projects: Project[] = [
       "Multi-modal support for video analysis",
       "User feedback loop for response quality",
     ],
-    github: "https://github.com/pruthvi189",
+    github: "https://github.com/pruthvi189/football-iq-ai",
     category: "ai-ml",
     featured: true,
   },

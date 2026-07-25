@@ -42,7 +42,7 @@ export const metadata: Metadata = {
       "ML Engineer specializing in deep learning, NLP, and full-stack AI applications.",
     images: [
       {
-        url: "/og.png",
+        url: "https://pruthvishah.dev/og.png",
         width: 1200,
         height: 630,
         alt: "Pruthvi Shah — ML Engineer",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     title: "Pruthvi Shah — ML Engineer",
     description:
       "ML Engineer specializing in deep learning, NLP, and full-stack AI applications.",
-    images: ["/og.png"],
+    images: ["https://pruthvishah.dev/og.png"],
   },
   robots: {
     index: true,

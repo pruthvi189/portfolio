@@ -9,7 +9,7 @@ export function Projects() {
     <section id="projects" className="scroll-mt-24 relative flex w-full flex-col items-center bg-[#080808] px-4 py-24 sm:px-6 lg:px-8">
       <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#d97706]/20 to-transparent" />
 
-      <div className="relative z-10 w-full max-w-7xl">
+      <div className="relative z-10 w-full max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

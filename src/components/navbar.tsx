@@ -19,16 +19,6 @@ interface NavBarProps {
 
 export function NavBar({ items, className }: NavBarProps) {
   const [activeTab, setActiveTab] = useState(items[0].name);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +39,8 @@ export function NavBar({ items, className }: NavBarProps) {
   }, [items]);
 
   return (
-    <div
+    <nav
+      aria-label="Main navigation"
       className={cn(
         "fixed bottom-0 sm:top-0 sm:bottom-auto left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-6",
         className,
@@ -65,6 +56,8 @@ export function NavBar({ items, className }: NavBarProps) {
               key={item.name}
               href={item.url}
               onClick={() => setActiveTab(item.name)}
+              aria-label={item.name}
+              aria-current={isActive ? "true" : undefined}
               className={cn(
                 "relative cursor-pointer text-xs font-medium px-3 sm:px-5 py-2 rounded-full transition-colors duration-200",
                 "text-muted-foreground hover:text-foreground",
@@ -73,7 +66,7 @@ export function NavBar({ items, className }: NavBarProps) {
             >
               <span className="hidden md:inline">{item.name}</span>
               <span className="md:hidden">
-                <Icon size={16} strokeWidth={1.5} />
+                <Icon size={16} strokeWidth={1.5} aria-hidden="true" />
               </span>
               {isActive && (
                 <motion.div
@@ -93,6 +86,6 @@ export function NavBar({ items, className }: NavBarProps) {
           );
         })}
       </div>
-    </div>
+    </nav>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { site } from "@/data/site";
 
 function BlurChar({
   char,
@@ -33,8 +34,7 @@ export function IntroSplash() {
   const [show, setShow] = useState(false);
   const [animateIn, setAnimateIn] = useState(false);
   const [animateOut, setAnimateOut] = useState(false);
-  const firstName = "Pruthvi";
-  const lastName = "Shah";
+  const [firstName, lastName] = site.name.split(" ");
 
   useEffect(() => {
     try {
