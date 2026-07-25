@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { ScrollProgress } from "@/components/scroll-progress";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -70,6 +71,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${poppins.variable} dark`}>
       <body className="min-h-screen bg-background text-foreground antialiased">
+        <ScrollProgress />
         {children}
       </body>
     </html>

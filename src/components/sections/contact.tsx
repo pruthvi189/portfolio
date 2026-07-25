@@ -57,7 +57,7 @@ export function Contact() {
                     href={link.href}
                     target={isExternal ? "_blank" : undefined}
                     rel={isExternal ? "noopener noreferrer" : undefined}
-                    className="group flex flex-col items-center text-center border border-border rounded-2xl p-6 bg-card hover:border-orange hover:shadow-[0_0_30px_-10px_rgba(232,102,10,0.1)] transition-[border-color,box-shadow] duration-300"
+                    className="group flex flex-col items-center text-center border-[1.5px] border-border rounded-[20px] p-6 bg-card hover:border-orange hover:shadow-[0_0_30px_-10px_rgba(232,102,10,0.1)] transition-[border-color,box-shadow] duration-300"
                   >
                     <div className="flex items-center justify-center w-12 h-12 rounded-full bg-secondary text-muted-foreground group-hover:bg-orange/15 group-hover:text-orange mb-3 transition-[background-color,color] duration-300">
                       <Icon size={20} />
