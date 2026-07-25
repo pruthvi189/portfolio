@@ -38,7 +38,7 @@ export function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: index * 0.08, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="group relative overflow-hidden rounded-sm border border-white/[0.08] bg-white/[0.008] transition-shadow hover:shadow-[0_24px_64px_rgba(0,0,0,0.7)]"
+              className="group relative overflow-hidden rounded-sm border border-white/[0.08] bg-white/[0.008] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_64px_rgba(0,0,0,0.7)] hover:shadow-[0_0_30px_-10px_rgba(232,102,10,0.15)]"
             >
               <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#d97706]/50 to-transparent" />
               <div className="absolute inset-y-0 left-0 w-[2px] origin-top bg-gradient-to-b from-[#d97706] to-[#d97706]/10 scale-y-0 group-hover:scale-y-100 transition-transform duration-500" />
@@ -91,7 +91,7 @@ export function Projects() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 rounded-sm border border-white/10 bg-white/[0.04] px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-wider text-white/60 transition-colors hover:border-white/20 hover:text-white"
+                        className="flex items-center gap-1.5 rounded-sm border border-white/10 bg-white/[0.04] px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-wider text-white/60 transition-all duration-300 hover:border-[#d97706]/40 hover:bg-[#d97706]/10 hover:text-[#d97706] hover:shadow-[0_0_20px_-5px_rgba(217,119,6,0.3)]"
                       >
                         <GithubIcon className="h-3.5 w-3.5" />
                         GitHub
