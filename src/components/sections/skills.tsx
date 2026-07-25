@@ -26,10 +26,16 @@ const skillCards = [
     skills: ["TensorFlow", "Scikit-learn", "Pandas", "NumPy", "OpenCV"],
   },
   {
-    title: "Database & Tools",
+    title: "Databases",
     icon: Database,
     gradientColor: "rgba(217,119,6,0.12)",
-    skills: ["MongoDB", "PostgreSQL", "SQLite", "Git", "GitHub", "VS Code", "Postman", "Figma"],
+    skills: ["MongoDB", "PostgreSQL", "SQLite"],
+  },
+  {
+    title: "Tools",
+    icon: Server,
+    gradientColor: "rgba(217,119,6,0.08)",
+    skills: ["Git", "GitHub", "VS Code", "Postman", "Figma"],
   },
 ];
 
