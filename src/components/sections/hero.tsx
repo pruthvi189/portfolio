@@ -82,22 +82,22 @@ export function Hero() {
                 animateBy="words"
                 className="text-primary"
               />
-            </h1>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.1] mt-1">
-              <BlurRevealText
-                text={site.name.split(" ")[0]}
-                delay={1.0}
-                animateBy="letters"
-                className="text-primary"
-              />
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.4, delay: 1.6 }}
-                className="text-orange"
-              >
-                .
-              </motion.span>
+              <span className="block mt-1">
+                <BlurRevealText
+                  text={site.name.split(" ")[0]}
+                  delay={1.0}
+                  animateBy="letters"
+                  className="text-primary"
+                />
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.4, delay: 1.6 }}
+                  className="text-orange"
+                >
+                  .
+                </motion.span>
+              </span>
             </h1>
           </div>
 

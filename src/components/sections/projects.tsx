@@ -8,10 +8,8 @@ import { projects } from "@/data/projects";
 
 function ProjectCard({
   project,
-  index,
 }: {
   project: (typeof projects)[number];
-  index: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
@@ -56,13 +54,13 @@ function ProjectCard({
         }}
         className="group relative overflow-hidden rounded-sm border border-white/[0.08] bg-white/[0.008] transition-[box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-white/[0.15] hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
       >
-        <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#d97706]/50 to-transparent" />
-        <div className="absolute inset-y-0 left-0 w-[2px] origin-top bg-gradient-to-b from-[#d97706] to-[#d97706]/10 scale-y-0 group-hover:scale-y-100 transition-transform duration-500" />
+        <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-orange/50 to-transparent" />
+        <div className="absolute inset-y-0 left-0 w-[2px] origin-top bg-gradient-to-b from-orange to-orange/10 scale-y-0 group-hover:scale-y-100 transition-transform duration-500" />
 
         <div className="flex flex-col lg:flex-row">
           <div className="flex flex-col gap-5 p-7 sm:p-8 lg:flex-1">
             <div className="flex items-center gap-2.5">
-              <span className="flex items-center gap-1.5 rounded-full border border-[#d97706]/30 bg-[#d97706]/10 px-2.5 py-1 font-mono text-[9px] uppercase tracking-widest text-[#d97706]">
+              <span className="flex items-center gap-1.5 rounded-full border border-orange/30 bg-orange/10 px-2.5 py-1 font-mono text-[9px] uppercase tracking-widest text-orange">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-2.5 w-2.5" aria-hidden="true">
                   <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" />
                   <path d="M20 2v4" />
@@ -107,7 +105,7 @@ function ProjectCard({
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 rounded-sm border border-white/10 bg-white/[0.04] px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-wider text-white/60 transition-[border-color,background-color,color,box-shadow] duration-300 hover:border-[#d97706]/40 hover:bg-[#d97706]/10 hover:text-[#d97706] hover:shadow-[0_0_20px_-5px_rgba(217,119,6,0.3)]"
+                  className="flex items-center gap-1.5 rounded-sm border border-white/10 bg-white/[0.04] px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-wider text-white/60 transition-[border-color,background-color,color,box-shadow] duration-300 hover:border-orange/40 hover:bg-orange/10 hover:text-orange hover:shadow-[0_0_20px_-5px_rgba(217,119,6,0.3)]"
                 >
                   <GithubIcon className="h-3.5 w-3.5" />
                   GitHub
@@ -118,7 +116,7 @@ function ProjectCard({
                   href={project.liveDemo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 rounded-sm border border-[#d97706]/40 bg-[#d97706]/10 px-3.5 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-[#d97706] transition-[background-color,color] duration-300 hover:bg-[#d97706] hover:text-[#080808]"
+                  className="flex items-center gap-1.5 rounded-sm border border-orange/40 bg-orange/10 px-3.5 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-orange transition-[background-color,color] duration-300 hover:bg-orange hover:text-[#080808]"
                 >
                   <ExternalLink className="h-3.5 w-3.5" />
                   Live
@@ -135,7 +133,7 @@ function ProjectCard({
 export function Projects() {
   return (
     <section id="projects" className="scroll-mt-24 relative flex w-full flex-col items-center bg-[#080808] px-4 py-24 sm:px-6 lg:px-8">
-      <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#d97706]/20 to-transparent" />
+      <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-orange/20 to-transparent" />
 
       <div className="relative z-10 w-full max-w-5xl">
         <FadeIn className="mb-14 flex flex-col gap-1 md:flex-row md:items-end md:justify-between">
@@ -153,8 +151,8 @@ export function Projects() {
         </FadeIn>
 
         <StaggerContainer className="flex flex-col gap-6" staggerDelay={0.1}>
-          {projects.map((project, index) => (
-            <ProjectCard key={project.slug} project={project} index={index} />
+            {projects.map((project) => (
+              <ProjectCard key={project.slug} project={project} />
           ))}
         </StaggerContainer>
       </div>

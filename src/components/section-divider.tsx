@@ -19,7 +19,7 @@ export function SectionDivider() {
         style={{ scaleX, opacity }}
         className="w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-orange/30 to-transparent origin-center"
       />
-      <div className="absolute w-1.5 h-1.5 rounded-full bg-orange/40" />
+      <div className="absolute w-1.5 h-1.5 rounded-full bg-orange/40" aria-hidden="true" />
     </div>
   );
 }

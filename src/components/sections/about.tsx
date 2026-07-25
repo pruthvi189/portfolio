@@ -67,7 +67,7 @@ export function About() {
             {timeline.map((item, index) => {
               const Icon = item.icon;
               return (
-                <StaggerItem key={index}>
+                <StaggerItem key={item.title}>
                   <div className="group relative flex gap-4 sm:gap-6 rounded-lg p-2 -m-2 transition-colors duration-300 hover:bg-white/[0.02]">
                     <div className="relative z-10 flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-secondary border border-border shrink-0 transition-colors duration-300 group-hover:border-orange/30">
                       <Icon

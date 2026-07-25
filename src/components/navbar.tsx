@@ -63,7 +63,7 @@ export function NavBar({ items, className }: NavBarProps) {
               href={item.url}
               onClick={() => setActiveTab(item.name)}
               aria-label={item.name}
-              aria-current={isActive ? "true" : undefined}
+              aria-current={isActive ? "page" : undefined}
               className={cn(
                 "relative cursor-pointer text-xs font-medium px-3 sm:px-5 py-2 rounded-full transition-colors duration-200",
                 "text-muted-foreground hover:text-foreground",

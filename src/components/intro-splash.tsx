@@ -37,11 +37,13 @@ export function IntroSplash() {
   const [firstName, lastName] = site.name.split(" ");
 
   useEffect(() => {
+    let canStore = false;
     try {
       const seen = sessionStorage.getItem("intro-seen");
       if (seen) return;
+      canStore = true;
     } catch {
-      return;
+      // sessionStorage unavailable — show splash once per load
     }
 
     setShow(true);
@@ -51,9 +53,11 @@ export function IntroSplash() {
     const t3 = setTimeout(() => {
       setShow(false);
       document.body.style.overflow = "";
-      try {
-        sessionStorage.setItem("intro-seen", "1");
-      } catch {}
+      if (canStore) {
+        try {
+          sessionStorage.setItem("intro-seen", "1");
+        } catch {}
+      }
     }, 3400);
 
     const safety = setTimeout(() => {

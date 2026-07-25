@@ -1,6 +1,3 @@
-"use client";
-
-import dynamic from "next/dynamic";
 import { Navigation } from "@/components/sections/navigation";
 import { Hero } from "@/components/sections/hero";
 import { Projects } from "@/components/sections/projects";
@@ -9,10 +6,7 @@ import { IntroSplash } from "@/components/intro-splash";
 import { SectionDivider } from "@/components/section-divider";
 import { PageTransition } from "@/components/page-transition";
 import { ParallaxFade } from "@/components/parallax-fade";
-
-const Skills = dynamic(() => import("@/components/sections/skills").then(m => ({ default: m.Skills })), { ssr: false });
-const About = dynamic(() => import("@/components/sections/about").then(m => ({ default: m.About })), { ssr: false });
-const Contact = dynamic(() => import("@/components/sections/contact").then(m => ({ default: m.Contact })), { ssr: false });
+import { Skills, About, Contact } from "@/components/lazy-sections";
 
 export default function Home() {
   return (

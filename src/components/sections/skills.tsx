@@ -2,8 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { StaggerContainer, StaggerItem } from "@/components/animations";
-import { FadeIn } from "@/components/animations";
+import { StaggerContainer, StaggerItem, FadeIn } from "@/components/animations";
 import { Laptop, Server, Cpu, Database } from "lucide-react";
 
 const skillCards = [
@@ -60,7 +59,7 @@ function SkillCard({ card }: { card: (typeof skillCards)[number] }) {
         onMouseLeave={() => setIsHovered(false)}
         className="group relative overflow-hidden rounded-sm border border-white/[0.07] bg-white/[0.01] p-5 transition-colors hover:border-white/[0.12]"
       >
-        <div className="absolute right-0 top-0 h-1.5 w-1.5 bg-[#d97706]/20 transition-colors group-hover:bg-[#d97706]/60" />
+        <div className="absolute right-0 top-0 h-1.5 w-1.5 bg-orange/20 transition-colors group-hover:bg-orange/60" />
         <motion.div
           className="pointer-events-none absolute inset-0 rounded-sm"
           style={{
@@ -76,7 +75,7 @@ function SkillCard({ card }: { card: (typeof skillCards)[number] }) {
           transition={{ duration: 0.3 }}
         />
         <div className="relative mb-4 flex items-center gap-2.5 border-b border-white/[0.05] pb-3">
-          <Icon className="h-4 w-4 text-[#d97706]/70" />
+          <Icon className="h-4 w-4 text-orange/70" />
           <h4 className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#f5f5f0]">{card.title}</h4>
         </div>
         <div className="relative flex flex-wrap gap-1.5">
@@ -94,7 +93,7 @@ function SkillCard({ card }: { card: (typeof skillCards)[number] }) {
 export function Skills() {
   return (
     <section id="skills" className="scroll-mt-24 relative flex w-full flex-col items-center bg-[#080808] px-4 py-24 sm:px-6 lg:px-8">
-      <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#d97706]/20 to-transparent" />
+      <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-orange/20 to-transparent" />
 
       <div className="relative z-10 w-full max-w-5xl">
         <FadeIn className="mb-14">
