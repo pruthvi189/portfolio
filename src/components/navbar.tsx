@@ -21,21 +21,27 @@ export function NavBar({ items, className }: NavBarProps) {
   const [activeTab, setActiveTab] = useState(items[0].name);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = items.map((item) => item.url.replace("#", ""));
-      const scrollPos = window.scrollY + 120;
+    const observers: IntersectionObserver[] = [];
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i]);
-        if (section && section.offsetTop <= scrollPos) {
-          setActiveTab(items[i].name);
-          break;
-        }
-      }
-    };
+    items.forEach((item) => {
+      const id = item.url.replace("#", "");
+      const el = document.getElementById(id);
+      if (!el) return;
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveTab(item.name);
+          }
+        },
+        { rootMargin: "-40% 0px -55% 0px" }
+      );
+
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
   }, [items]);
 
   return (
