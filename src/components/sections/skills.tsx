@@ -106,13 +106,11 @@ export function Skills() {
           </h2>
         </FadeIn>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <StaggerContainer staggerDelay={0.08}>
-            {skillCards.map((card) => (
-              <SkillCard key={card.title} card={card} />
-            ))}
-          </StaggerContainer>
-        </div>
+        <StaggerContainer className="grid grid-cols-1 gap-4 sm:grid-cols-2" staggerDelay={0.08}>
+          {skillCards.map((card) => (
+            <SkillCard key={card.title} card={card} />
+          ))}
+        </StaggerContainer>
       </div>
     </section>
   );

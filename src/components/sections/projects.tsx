@@ -152,7 +152,7 @@ export function Projects() {
           </p>
         </FadeIn>
 
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-8">
           <StaggerContainer staggerDelay={0.1}>
             {projects.map((project, index) => (
               <ProjectCard key={project.slug} project={project} index={index} />
