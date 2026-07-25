@@ -128,7 +128,7 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/pruthvi189/Stock_Market_Analysis",
     category: "ai-ml",
-    featured: true,
+    featured: false,
   },
   {
     slug: "medify",
@@ -183,6 +183,6 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/pruthvi189/Medify",
     category: "ai-ml",
-    featured: true,
+    featured: false,
   },
 ];
