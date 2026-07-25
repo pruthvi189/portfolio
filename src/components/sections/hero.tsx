@@ -1,63 +1,41 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useRef, useMemo, useEffect, useState } from "react";
 import { site } from "@/data/site";
 import Link from "next/link";
 
-function BlurText({
+function BlurRevealText({
   text,
-  delay = 50,
+  delay = 0,
   animateBy = "words",
-  direction = "top",
   className = "",
 }: {
   text: string;
   delay?: number;
   animateBy?: "words" | "letters";
-  direction?: "top" | "bottom";
   className?: string;
 }) {
-  const [inView, setInView] = useState(false);
-  const ref = useRef<HTMLParagraphElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setInView(true);
-      },
-      { threshold: 0.1 },
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => {
-      if (ref.current) observer.unobserve(ref.current);
-    };
-  }, []);
-
-  const segments = useMemo(() => {
-    return animateBy === "words" ? text.split(" ") : text.split("");
-  }, [text, animateBy]);
+  const segments = animateBy === "words" ? text.split(" ") : text.split("");
 
   return (
-    <p ref={ref} className={`inline-flex flex-wrap ${className}`}>
+    <span className={`inline-flex flex-wrap ${className}`}>
       {segments.map((segment, i) => (
-        <span
+        <motion.span
           key={i}
-          style={{
-            display: "inline-block",
-            filter: inView ? "blur(0px)" : "blur(10px)",
-            opacity: inView ? 1 : 0,
-            transform: inView
-              ? "translateY(0)"
-              : `translateY(${direction === "top" ? "-16px" : "16px"})`,
-            transition: `all 0.6s cubic-bezier(0.21, 0.47, 0.32, 0.98) ${i * delay}ms`,
+          initial={{ opacity: 0, filter: "blur(10px)", y: -16 }}
+          animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+          transition={{
+            duration: 0.6,
+            delay: delay + i * 0.08,
+            ease: [0.21, 0.47, 0.32, 0.98],
           }}
+          style={{ display: "inline-block" }}
         >
           {segment}
           {animateBy === "words" && i < segments.length - 1 ? "\u00A0" : ""}
-        </span>
+        </motion.span>
       ))}
-    </p>
+    </span>
   );
 }
 
@@ -70,12 +48,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-[#08080a] pointer-events-none opacity-30" />
 
       <div className="max-w-4xl mx-auto w-full relative">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="space-y-8"
-        >
+        <div className="space-y-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -86,36 +59,37 @@ export function Hero() {
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-          >
+          <div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.1]">
-              <BlurText
+              <BlurRevealText
                 text="Hi, I'm"
-                delay={80}
+                delay={0.8}
                 animateBy="words"
-                direction="top"
                 className="text-primary"
               />
             </h1>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.1] mt-1">
-              <BlurText
+              <BlurRevealText
                 text={site.name.split(" ")[0]}
-                delay={80}
+                delay={1.0}
                 animateBy="letters"
-                direction="top"
                 className="text-primary"
               />
-              <span className="text-orange">.</span>
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4, delay: 1.6 }}
+                className="text-orange"
+              >
+                .
+              </motion.span>
             </h1>
-          </motion.div>
+          </div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1 }}
+            transition={{ duration: 0.6, delay: 1.8 }}
             className="text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed font-light"
           >
             {site.tagline}
@@ -124,7 +98,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.1 }}
+            transition={{ duration: 0.6, delay: 2.0 }}
             className="flex flex-wrap items-center gap-4 pt-4"
           >
             <Link
@@ -140,16 +114,17 @@ export function Hero() {
               Contact Me
             </Link>
           </motion.div>
-        </motion.div>
+        </div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.4 }}
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 2.2, ease: [0.21, 0.47, 0.32, 0.98] }}
           className="mt-16 overflow-hidden"
+          aria-hidden="true"
         >
           <div className="flex w-[200%] animate-marquee">
-            {[...Array(2)].map((_, setIndex) => (
+            {[0, 1].map((setIndex) => (
               <div key={setIndex} className="flex items-center gap-4 shrink-0 whitespace-nowrap pr-4">
                 {["Python", "TensorFlow", "React", "Next.js", "Node.js", "FastAPI", "Flask", "LangChain", "Scikit-learn", "MongoDB", "PostgreSQL", "Docker", "Git", "NumPy", "Pandas", "OpenCV"].map((tech) => (
                   <span key={`${setIndex}-${tech}`} className="text-sm text-muted-foreground/50 font-mono">

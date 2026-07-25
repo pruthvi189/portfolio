@@ -1,6 +1,6 @@
 "use client";
 
-import { FadeIn } from "@/components/animations";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
 import { site } from "@/data/site";
 import { Mail, FileText } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
@@ -46,33 +46,34 @@ export function Contact() {
           </p>
         </FadeIn>
 
-        <FadeIn delay={0.1}>
+        <StaggerContainer staggerDelay={0.08}>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {links.map((link) => {
               const Icon = link.icon;
               const isExternal = link.href.startsWith("http");
               return (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target={isExternal ? "_blank" : undefined}
-                  rel={isExternal ? "noopener noreferrer" : undefined}
-                  className="group flex flex-col items-center text-center border border-border rounded-2xl p-6 bg-card hover:border-orange hover:shadow-[0_0_30px_-10px_rgba(232,102,10,0.1)] transition-all duration-300"
-                >
-                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-secondary text-muted-foreground group-hover:bg-orange/15 group-hover:text-orange mb-3 transition-all duration-300">
-                    <Icon size={20} />
-                  </div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground mb-1">
-                    {link.label}
-                  </p>
-                  <p className="font-medium text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-200">
-                    {link.value}
-                  </p>
-                </a>
+                <StaggerItem key={link.label}>
+                  <a
+                    href={link.href}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
+                    className="group flex flex-col items-center text-center border border-border rounded-2xl p-6 bg-card hover:border-orange hover:shadow-[0_0_30px_-10px_rgba(232,102,10,0.1)] transition-[border-color,box-shadow] duration-300"
+                  >
+                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-secondary text-muted-foreground group-hover:bg-orange/15 group-hover:text-orange mb-3 transition-[background-color,color] duration-300">
+                      <Icon size={20} />
+                    </div>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground mb-1">
+                      {link.label}
+                    </p>
+                    <p className="font-medium text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-200">
+                      {link.value}
+                    </p>
+                  </a>
+                </StaggerItem>
               );
             })}
           </div>
-        </FadeIn>
+        </StaggerContainer>
       </div>
     </section>
   );

@@ -60,17 +60,16 @@ export function About() {
           </p>
         </FadeIn>
 
-        <FadeIn delay={0.4}>
-          <div className="relative">
-            <div className="absolute left-4 sm:left-6 top-0 bottom-0 w-px bg-border" />
+        <div className="relative">
+          <div className="absolute left-4 sm:left-6 top-0 bottom-0 w-px bg-border" />
 
-            <StaggerContainer className="space-y-12" staggerDelay={0.1}>
+          <StaggerContainer className="space-y-12" staggerDelay={0.1}>
             {timeline.map((item, index) => {
               const Icon = item.icon;
               return (
                 <StaggerItem key={index}>
-                  <div className="relative flex gap-4 sm:gap-6">
-                    <div className="relative z-10 flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-secondary border border-border shrink-0">
+                  <div className="group relative flex gap-4 sm:gap-6 rounded-lg p-2 -m-2 transition-colors duration-300 hover:bg-white/[0.02]">
+                    <div className="relative z-10 flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-secondary border border-border shrink-0 transition-colors duration-300 group-hover:border-orange/30">
                       <Icon
                         size={16}
                         className="text-muted-foreground sm:w-5 sm:h-5"
@@ -107,8 +106,7 @@ export function About() {
               );
             })}
           </StaggerContainer>
-          </div>
-        </FadeIn>
+        </div>
       </div>
     </section>
   );
