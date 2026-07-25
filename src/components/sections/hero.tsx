@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { site } from "@/data/site";
 import Link from "next/link";
 
@@ -40,14 +41,28 @@ function BlurRevealText({
 }
 
 export function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const textY = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const marqueeY = useTransform(scrollYProgress, [0, 1], [0, 80]);
+
   return (
     <section
+      ref={ref}
       id="home"
       className="relative min-h-screen flex items-center section-padding pt-32 pb-32 sm:pb-20"
     >
       <div className="absolute inset-0 bg-[#08080a] pointer-events-none opacity-30" />
 
-      <div className="max-w-4xl mx-auto w-full relative">
+      <motion.div
+        style={{ y: textY, opacity: textOpacity }}
+        className="max-w-4xl mx-auto w-full relative"
+      >
         <div className="space-y-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -120,6 +135,7 @@ export function Hero() {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 2.2, ease: [0.21, 0.47, 0.32, 0.98] }}
+          style={{ y: marqueeY }}
           className="mt-16 overflow-hidden"
           aria-hidden="true"
         >
@@ -135,7 +151,7 @@ export function Hero() {
             ))}
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }
