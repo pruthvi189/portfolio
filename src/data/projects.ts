@@ -23,7 +23,7 @@ export const projects: Project[] = [
     title: "Football IQ AI",
     subtitle: "Learn Football Through AI",
     description:
-      "A Retrieval-Augmented Generation application that answers football questions using information retrieved from a curated knowledge base of football documents.",
+      "A Retrieval-Augmented Generation (RAG) application that answers football questions by retrieving relevant information from a curated knowledge base using semantic search and large language models.",
     problem:
       "Football fans and analysts need quick, accurate answers grounded in real football knowledge — rules, tactics, player stats, and historical context — without sifting through hundreds of pages of documentation.",
     solution:
@@ -80,7 +80,7 @@ export const projects: Project[] = [
     title: "Stock Market Forecasting Dashboard",
     subtitle: "ML-Powered Financial Prediction",
     description:
-      "A Flask web application for exploring historical stock data and forecasting future prices using ARIMA, Prophet, and LSTM models.",
+      "A Flask web application for analyzing historical stock data and forecasting future prices by comparing ARIMA, Prophet, and LSTM time-series models.",
     problem:
       "Investors and analysts need to compare multiple forecasting approaches on real market data to make informed model selection decisions — not just pick the first algorithm that works.",
     solution:
@@ -135,7 +135,7 @@ export const projects: Project[] = [
     title: "Medify — AI Medical Assistant",
     subtitle: "Top 25/500 Finalist, CVMU Hackathon",
     description:
-      "A cross-platform React Native app with AI-powered medical report analysis, OCR for handwritten prescriptions, and real-time patient assistance.",
+      "A cross-platform React Native healthcare application featuring OCR for handwritten prescriptions, medical report analysis, and accessible health information for patients.",
     problem:
       "Patients often struggle to understand medical reports, dosage instructions, and medication information. Handwritten prescriptions are particularly difficult to parse digitally.",
     solution:

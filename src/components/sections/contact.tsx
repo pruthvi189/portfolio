@@ -41,8 +41,8 @@ export function Contact() {
             Get in Touch
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mb-12 text-center mx-auto">
-            Have a project in mind or just want to chat? I&apos;m always open to
-            new opportunities and interesting conversations.
+            Open to ML engineering opportunities, collaborations, and conversations
+            about building impactful products.
           </p>
         </FadeIn>
 

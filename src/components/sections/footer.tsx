@@ -14,7 +14,7 @@ export function Footer() {
             Tailwind CSS.
           </p>
           <p className="text-sm text-muted-foreground">
-            Designed with precision.
+            Always building.
           </p>
         </div>
       </FadeIn>
